@@ -8,6 +8,7 @@ const initialState = {
     Rating: '',
     Category: '',
     Image: '',
+    isFavourite: false,
     collections: []
 }
 
@@ -22,7 +23,8 @@ const collectionReducer = (state=initialState, action) => {
                     Description: action.payload.Description,
                     Rating: action.payload.Rating,
                     Category: action.payload.Category,
-                    Image: action.payload.Image
+                    Image: action.payload.Image,
+                    isFavourite: action.payload.isFavourite
                 })
             })
         case DELETE_COLLECTION_DETAILS:
