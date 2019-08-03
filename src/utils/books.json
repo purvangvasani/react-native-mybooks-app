@@ -1,0 +1,322 @@
+[
+    {
+    "categories":{
+        "adventure":{
+            "1":{
+                "name": "Gulliver's Travels",
+                "author": "Jonathan Swift",
+                "description" : "The adventure novel as social satire. Swift uses the inherited tropes and conventions of the contemporary travel narrative to mock religion, politics, science and human nature in general. Gulliver’s inner journey is from optimism to embittered misanthropy—the more adventures he has the less sanguine he becomes.",
+                "ratings": "3.6" 
+            },
+            "2":{
+                "name": "Treasure Island",
+                "author": "Robert Louis Stevenson",
+                "description" : "What better reason could there be for an adventure than the search for buried treasure? All the clichés are here—the treasure map (X marks the spot),  the one-legged pirate, the plucky cabin boy, the talking parrot—but they only feel like clichés to us now because Stevenson’s novel, so new and original at the time, has driven them so deep into our collective unconscious. Pirate stories have a special and privileged place in adventure fiction and Treasure Island is a pure and unmatched example of the genre.",
+                "ratings": "3.8" 
+            },
+            "3":{
+                "name": "The Road",
+                "author": "Cormac McCarthy",
+                "description" : "Cormac McCarthy is a hero of mine. Most of his novels are broadly picaresque–the characters travel through a landscape (always described with extraordinary vividness and originality) and have a series of typically violent or frightening encounters with other people. The Road certainly fits that pattern. It’s a grim post-apocalyptic adventure story complete with cannibals and babies on spits. The home is destroyed and the mother is dead well before the novel begins, but there is a definite glimmer of hope at the end when the dying father entrusts his son to a new family.",
+                "ratings": "4" 
+            }
+        },
+        "Drama":{
+            "1":{
+                "name": "Romeo and Juliet",
+                "author": "William Shakespeare",
+                "description" : "Romeo and Juliet is a tragedy written by William Shakespeare early in his career about two young star-crossed lovers whose deaths ultimately reconcile their feuding families. It was among Shakespeare's most popular plays during his lifetime and along with Hamlet, is one of his most frequently performed plays. Today, the title characters are regarded as archetypal young lovers.",
+                "ratings": "3.7" 
+            },
+            "2":{
+                "name": "Hamlet",
+                "author": "William Shakespeare",
+                "description" : "The Tragedy of Hamlet, Prince of Denmark, often shortened to Hamlet (/ˈhæmlɪt/), is a tragedy written by William Shakespeare sometime between 1599 and 1602. Set in Denmark, the play depicts Prince Hamlet and his revenge against his uncle, Claudius, who has murdered Hamlet's father in order to seize his throne and marry Hamlet's mother.",
+                "ratings": "4" 
+            },
+            "3":{
+                "name": "The Crucible",
+                "author": "Arthur Miller",
+                "description" : "The Crucible is a 1953 play by American playwright Arthur Miller. It is a dramatized and partially fictionalized story of the Salem witch trials that took place in the Massachusetts Bay Colony during 1692–93. Miller wrote the play as an allegory for McCarthyism, when the United States government persecuted people accused of being communists.",
+                "ratings": "3.6" 
+            }
+        },
+        "Fiction":{
+            "1":{
+                "name": "The Hunger Games",
+                "author": "Suzanne Collins",
+                "description" : "The Hunger Games is a 2008 dystopian novel by the American writer Suzanne Collins. It is written in the voice of 16-year-old Katniss Everdeen, who lives in the future, post-apocalyptic nation of Panem in North America. The Capitol, a highly advanced metropolis, exercises political control over the rest of the nation.",
+                "ratings": "4.3" 
+            },
+            "2":{
+                "name": "To Kill a Mockingbird",
+                "author": "Harper Lee",
+                "description" : "To Kill a Mockingbird is a novel by Harper Lee published in 1960. Instantly successful, widely read in high schools and middle schools in the United States, it has become a classic of modern American literature, winning the Pulitzer Prize. The plot and characters are loosely based on Lee's observations of her family, her neighbors and an event that occurred near her hometown of Monroeville, Alabama, in 1936, when she was 10 years old.",
+                "ratings": "4.2" 
+            },
+            "3":{
+                "name": "Twilight",
+                "author": "Stephenie Meyer",
+                "description" : "Twilight (stylized as twilight) is a 2005 young adult vampire-romance novel by author Stephenie Meyer. It is the first book in the Twilight series, and introduces seventeen-year-old Isabella (Bella) Swan, who moves from Phoenix, Arizona to Forks, Washington. She is endangered after falling in love with Edward Cullen, a vampire.",
+                "ratings": "3.5" 
+            }
+        },
+        "Horror":{
+            "1":{
+                "name": "The Girl in Red",
+                "author": "Christina Henry",
+                "description" : "The Girl in Red by Christina Henry is the latest addition in her gritty fairy tale retellings. They aren’t part of a connected series, but Henry has done retellings of Alice in Wonderland, The Little Mermaid, and Peter Pan. This one retells Little Red Riding Hood where a young woman tries to get to her grandmother’s house following an outbreak of deadly pandemic.",
+                "ratings": "3.7" 
+            },
+            "2":{
+                "name": "Five Midnights",
+                "author": "Ann Dávila Cardinal",
+                "description" : "If Lupe Dávila and Javier Utierre can survive each other’s company, together they can solve a series of grisly murders sweeping though Puerto Rico. But the clues lead them out of the real world and into the realm of myths and legends. And if they want to catch the killer, they'll have to step into the shadows to see what's lurking there—murderer, or monster?",
+                "ratings": "3.7" 
+            },
+            "3":{
+                "name": "The Haunted",
+                "author": "Daniella Vega",
+                "description" : "Hendricks Becker-O’Malley is new in town, and she’s bringing baggage with her. With a dark and wild past, Hendricks doesn’t think the small town her parents moved her to has much to offer her in terms of excitement. She plans on laying low, but when she’s suddenly welcomed into the popular crowd at school, things don’t go as expected. Hendricks learns from her new friends that the fixer-upper her parents are so excited about is notorious in town. Local legend says it’s haunted.",
+                "ratings": "3.6" 
+            }
+        },
+        "Non-Fiction":{
+            "1":{
+                "name": "The Last Leonardo",
+                "author": "Ben Lewis",
+                "description" : "For two centuries, art dealers and historians searched in vain for the Holy Grail of art history: a portrait of Christ as the Salvator Mundi (Savior of the World) by Leonardo da Vinci. At last, in 2005 a compelling candidate was discovered by a small-time Old Masters dealer at a second-rate auction house in New Orleans.",
+                "ratings": "4.1" 
+            },
+            "2":{
+                "name": "Tell Me Who You Are",
+                "author": "Winona Guo,  Priya Vulchi",
+                "description" : "In Tell Me Who You Are, Guo and Vulchi reveal the lines that separate us based on race or other perceived differences and how telling our stories--and listening deeply to the stories of others--are the first and most crucial steps we can take towards negating racial inequity in our culture. ",
+                "ratings": "3.8" 
+            },
+            "3":{
+                "name": "Nacro '80",
+                "author": "Peter Houlahan",
+                "description" : "Norco ’80 tells the story of how five heavily-armed young men—led by an apocalyptic born-again Christian—attempted a bank robbery that turned into one of the most violent criminal events in U.S. history, forever changing the face of American law enforcement. Part action thriller and part courtroom drama, Norco ’80 transports the reader back to the Southern California of the 1970s, an era of predatory evangelical gurus, doomsday predictions, megachurches, and soaring crime rates, with the threat of nuclear obliteration looming over it all.",
+                "ratings": "4.2" 
+            }
+        },
+        "Romance":{
+            "1":{
+                "name": "Time After Time",
+                "author": "Lisa Grunwald",
+                "description" : "A magical love story, inspired by the legend of a woman who vanished from Grand Central Terminal, sweeps readers from the 1920s to World War II and beyond, in the spirit of The Time Traveler’s Wife and The Curious Case of Benjamin Button.",
+                "ratings": "3.8" 
+            },
+            "2":{
+                "name": "Wicked Fox",
+                "author": "Kat Cho",
+                "description" : "Eighteen-year-old Gu Miyoung has a secret--she's a gumiho, a nine-tailed fox who must devour the energy of men in order to survive. Because so few believe in the old tales anymore, and with so many evil men no one will miss, the modern city of Seoul is the perfect place to hide and hunt.",
+                "ratings": "3.8" 
+            },
+            "3":{
+                "name": "The Fault in our Stars",
+                "author": "John Green",
+                "description" : "Despite the tumor-shrinking medical miracle that has bought her a few years, Hazel has never been anything but terminal, her final chapter inscribed upon diagnosis. But when a gorgeous plot twist named Augustus Waters suddenly appears at Cancer Kid Support Group, Hazel's story is about to be completely rewritten.",
+                "ratings": "4.2" 
+            }
+        }
+    },
+    "bookList":{
+        "0":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Mariana",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Laborum ea velit Lorem aliquip commodo deserunt labore. Sit dolor minim aliqua nostrud aute veniam elit. Cupidatat fugiat magna eu incididunt adipisicing sunt dolor nostrud ullamco magna enim. Minim deserunt anim id id minim excepteur voluptate culpa dolore. Sint id enim et anim duis cillum velit commodo eiusmod culpa elit elit.",
+            "ratings": "8.1"
+        },
+        "1":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Bernadine",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Proident velit enim ut pariatur enim aliquip Lorem fugiat. Non reprehenderit sit mollit do sint tempor adipisicing. Deserunt sit nulla et deserunt reprehenderit laboris aliquip Lorem adipisicing est.",
+            "ratings": "8.1"
+        },
+        "2":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Silvia",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Sunt occaecat tempor id exercitation dolor do occaecat tempor. Irure irure fugiat eu in cillum consequat. Aliqua reprehenderit aliqua cupidatat esse nostrud dolore excepteur veniam Lorem velit sint eu anim. Enim magna ipsum anim sit culpa culpa deserunt voluptate occaecat quis do non consequat.",
+            "ratings": "8.1"
+        },
+        "3":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Kristie",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Veniam eu incididunt laboris do. Magna nulla sint labore consequat. Ullamco ullamco tempor voluptate incididunt ad commodo dolore culpa exercitation in voluptate ullamco tempor.",
+            "ratings": "8.1"
+        },
+        "4":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Davis",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Consectetur in dolore et laborum exercitation. Laborum minim reprehenderit culpa occaecat laborum exercitation magna dolor excepteur adipisicing ea adipisicing do ut. Fugiat reprehenderit laborum aliquip ea magna id sit in excepteur labore. Labore minim et aliquip labore officia cillum adipisicing laboris culpa nostrud incididunt culpa adipisicing enim.",
+            "ratings": "8.1"
+        },
+        "5":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Leon",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Do dolor deserunt ipsum quis est laborum qui pariatur ad enim in irure exercitation reprehenderit. Ut deserunt labore exercitation amet minim. Qui dolor labore esse esse amet sunt irure et voluptate. Commodo do excepteur qui quis anim commodo anim nisi voluptate sunt et eiusmod sint laboris.",
+            "ratings": "8.1"
+        },
+        "6":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Lena",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Ex magna commodo velit laboris aliqua ipsum ad. Labore duis consequat in commodo labore laborum id esse qui irure culpa reprehenderit reprehenderit. Enim labore elit sunt labore ex aliquip exercitation veniam fugiat.",
+            "ratings": "8.1"
+        },
+        "7":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Sara",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Enim labore consequat esse Lorem. Aliquip qui elit exercitation eu ea laboris pariatur consequat. Do sunt id commodo voluptate sunt laboris irure aute magna dolor reprehenderit elit. Cillum duis eu ipsum voluptate.",
+            "ratings": "8.1"
+        },
+        "8":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Teresa",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Aute sunt in in eiusmod officia mollit. Tempor et qui velit do magna culpa ut. Nisi laboris duis irure id esse esse magna officia. Minim est id culpa tempor dolore do laborum in cupidatat do. In sunt veniam ea esse dolore ullamco. Magna adipisicing eiusmod qui nisi et ex veniam. Ea laboris adipisicing tempor in ut minim qui.",
+            "ratings": "8.1"
+        },
+        "9":{
+            "index": 9,
+            "picture": "http://placehold.it/32x32",
+            "name": "Dickson",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Cillum duis anim anim duis in cupidatat amet. Incididunt labore magna ullamco quis aute ex. Officia pariatur non nisi ut. Irure eiusmod eiusmod cillum veniam qui voluptate enim mollit elit culpa. Duis labore nulla sint incididunt consequat et voluptate aute. Aliquip eiusmod cupidatat id excepteur proident consectetur est nisi aliqua aliqua labore qui. Consectetur id officia officia aliquip irure in et.",
+            "ratings": "8.1"
+        },
+        "10":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Contreras",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Eiusmod eiusmod incididunt culpa amet ex sit deserunt labore deserunt occaecat aliqua cupidatat. Esse ut exercitation pariatur et eiusmod duis dolor occaecat aute adipisicing dolor nulla. Dolore aute ullamco qui cupidatat in laborum.",
+            "ratings": "8.1"
+        }, 
+        "11":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Mariana",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Laborum ea velit Lorem aliquip commodo deserunt labore. Sit dolor minim aliqua nostrud aute veniam elit. Cupidatat fugiat magna eu incididunt adipisicing sunt dolor nostrud ullamco magna enim. Minim deserunt anim id id minim excepteur voluptate culpa dolore. Sint id enim et anim duis cillum velit commodo eiusmod culpa elit elit.",
+            "ratings": "8.1"
+        },
+        "12":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Bernadine",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Proident velit enim ut pariatur enim aliquip Lorem fugiat. Non reprehenderit sit mollit do sint tempor adipisicing. Deserunt sit nulla et deserunt reprehenderit laboris aliquip Lorem adipisicing est.",
+            "ratings": "8.1"
+        },
+        "13":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Silvia",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Sunt occaecat tempor id exercitation dolor do occaecat tempor. Irure irure fugiat eu in cillum consequat. Aliqua reprehenderit aliqua cupidatat esse nostrud dolore excepteur veniam Lorem velit sint eu anim. Enim magna ipsum anim sit culpa culpa deserunt voluptate occaecat quis do non consequat.",
+            "ratings": "8.1"
+        },
+        "14":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Kristie",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Veniam eu incididunt laboris do. Magna nulla sint labore consequat. Ullamco ullamco tempor voluptate incididunt ad commodo dolore culpa exercitation in voluptate ullamco tempor.",
+            "ratings": "8.1"
+        },
+        "15":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Davis",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Consectetur in dolore et laborum exercitation. Laborum minim reprehenderit culpa occaecat laborum exercitation magna dolor excepteur adipisicing ea adipisicing do ut. Fugiat reprehenderit laborum aliquip ea magna id sit in excepteur labore. Labore minim et aliquip labore officia cillum adipisicing laboris culpa nostrud incididunt culpa adipisicing enim.",
+            "ratings": "8.1"
+        },
+        "16":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Leon",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Do dolor deserunt ipsum quis est laborum qui pariatur ad enim in irure exercitation reprehenderit. Ut deserunt labore exercitation amet minim. Qui dolor labore esse esse amet sunt irure et voluptate. Commodo do excepteur qui quis anim commodo anim nisi voluptate sunt et eiusmod sint laboris.",
+            "ratings": "8.1"
+        },
+        "17":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Lena",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Ex magna commodo velit laboris aliqua ipsum ad. Labore duis consequat in commodo labore laborum id esse qui irure culpa reprehenderit reprehenderit. Enim labore elit sunt labore ex aliquip exercitation veniam fugiat.",
+            "ratings": "8.1"
+        },
+        "18":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Sara",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Enim labore consequat esse Lorem. Aliquip qui elit exercitation eu ea laboris pariatur consequat. Do sunt id commodo voluptate sunt laboris irure aute magna dolor reprehenderit elit. Cillum duis eu ipsum voluptate.",
+            "ratings": "8.1"
+        },
+        "19":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Teresa",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Aute sunt in in eiusmod officia mollit. Tempor et qui velit do magna culpa ut. Nisi laboris duis irure id esse esse magna officia. Minim est id culpa tempor dolore do laborum in cupidatat do. In sunt veniam ea esse dolore ullamco. Magna adipisicing eiusmod qui nisi et ex veniam. Ea laboris adipisicing tempor in ut minim qui.",
+            "ratings": "8.1"
+        },
+        "20":{
+            "index": 9,
+            "picture": "http://placehold.it/32x32",
+            "name": "Dickson",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Cillum duis anim anim duis in cupidatat amet. Incididunt labore magna ullamco quis aute ex. Officia pariatur non nisi ut. Irure eiusmod eiusmod cillum veniam qui voluptate enim mollit elit culpa. Duis labore nulla sint incididunt consequat et voluptate aute. Aliquip eiusmod cupidatat id excepteur proident consectetur est nisi aliqua aliqua labore qui. Consectetur id officia officia aliquip irure in et.",
+            "ratings": "8.1"
+        },
+        "21":{
+            "picture": "http://placehold.it/32x32",
+            "name": "Contreras",
+            "auther": "<TypeError: this.surName is not a function>",
+            "description": "Eiusmod eiusmod incididunt culpa amet ex sit deserunt labore deserunt occaecat aliqua cupidatat. Esse ut exercitation pariatur et eiusmod duis dolor occaecat aute adipisicing dolor nulla. Dolore aute ullamco qui cupidatat in laborum.",
+            "ratings": "8.1"
+        }      
+    },
+    "toppickes":{
+        "1":{
+            "name": "Gulliver's Travels",
+            "author": "Jonathan Swift",
+            "description" : "The adventure novel as social satire. Swift uses the inherited tropes and conventions of the contemporary travel narrative to mock religion, politics, science and human nature in general. Gulliver’s inner journey is from optimism to embittered misanthropy—the more adventures he has the less sanguine he becomes.",
+            "ratings": "3.6" 
+        },
+        "2":{
+            "name": "Hamlet",
+            "author": "William Shakespeare",
+            "description" : "The Tragedy of Hamlet, Prince of Denmark, often shortened to Hamlet (/ˈhæmlɪt/), is a tragedy written by William Shakespeare sometime between 1599 and 1602. Set in Denmark, the play depicts Prince Hamlet and his revenge against his uncle, Claudius, who has murdered Hamlet's father in order to seize his throne and marry Hamlet's mother.",
+            "ratings": "4" 
+        },
+        "3":{
+            "name": "Twilight",
+            "author": "Stephenie Meyer",
+            "description" : "Twilight (stylized as twilight) is a 2005 young adult vampire-romance novel by author Stephenie Meyer. It is the first book in the Twilight series, and introduces seventeen-year-old Isabella (Bella) Swan, who moves from Phoenix, Arizona to Forks, Washington. She is endangered after falling in love with Edward Cullen, a vampire.",
+            "ratings": "3.5" 
+        },
+        "4":{
+            "name": "The Girl in Red",
+            "author": "Christina Henry",
+            "description" : "The Girl in Red by Christina Henry is the latest addition in her gritty fairy tale retellings. They aren’t part of a connected series, but Henry has done retellings of Alice in Wonderland, The Little Mermaid, and Peter Pan. This one retells Little Red Riding Hood where a young woman tries to get to her grandmother’s house following an outbreak of deadly pandemic.",
+            "ratings": "3.7" 
+        },
+        "5":{
+            "name": "Tell Me Who You Are",
+            "author": "Winona Guo,  Priya Vulchi",
+            "description" : "In Tell Me Who You Are, Guo and Vulchi reveal the lines that separate us based on race or other perceived differences and how telling our stories--and listening deeply to the stories of others--are the first and most crucial steps we can take towards negating racial inequity in our culture. ",
+            "ratings": "3.8" 
+        },
+        "6":{
+            "name": "The Fault in our Stars",
+            "author": "John Green",
+            "description" : "Despite the tumor-shrinking medical miracle that has bought her a few years, Hazel has never been anything but terminal, her final chapter inscribed upon diagnosis. But when a gorgeous plot twist named Augustus Waters suddenly appears at Cancer Kid Support Group, Hazel's story is about to be completely rewritten.",
+            "ratings": "4.2" 
+        }
+    }
+    }
+]
