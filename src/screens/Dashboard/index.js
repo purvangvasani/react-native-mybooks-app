@@ -20,7 +20,7 @@ export class DashboardScreen extends Component {
         return topPickes.map((item, key) =>
             <Animatable.View animation="flipInX" delay={500} key={key} style={{marginLeft: variable.marginLeft_10}}>
                 <View style={{width: 120, height: 180,}}>
-                    <TouchableOpacity onPress={()=> this.props.navigation.navigate('BookDetail', {id: item.id, name: item.name, author: item.author, image: item.image, description: item.description, rating: item.ratings, category: item.category})}
+                    <TouchableOpacity onPress={()=> this.props.navigation.navigate('BookDetail', {id: item.id, name: item.name, author: item.author, image: item.image, description: item.description, rating: item.ratings, category: item.category, downloadLink: item.downloadLink})}
                         style={[theme.tileDashboard, {borderWidth: 0}]}>
                         <Image
                             // resizeMode="contain"

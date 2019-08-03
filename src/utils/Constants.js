@@ -422,7 +422,8 @@ export const topPickes = [
         image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1427829692l/7733.jpg",
         description : "The adventure novel as social satire. Swift uses the inherited tropes and conventions of the contemporary travel narrative to mock religion, politics, science and human nature in general. Gulliver’s inner journey is from optimism to embittered misanthropy—the more adventures he has the less sanguine he becomes.",
         ratings: "3.6" ,
-        category: "Adventure"
+        category: "Adventure",
+        downloadLink: "https://www.planetebook.com/free-ebooks/gullivers-travels.pdf"
     },
     {
         id: '2',
@@ -431,7 +432,8 @@ export const topPickes = [
         image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1351051208l/1420.jpg",
         description : "The Tragedy of Hamlet, Prince of Denmark, often shortened to Hamlet (/ˈhæmlɪt/), is a tragedy written by William Shakespeare sometime between 1599 and 1602. Set in Denmark, the play depicts Prince Hamlet and his revenge against his uncle, Claudius, who has murdered Hamlet's father in order to seize his throne and marry Hamlet's mother.",
         ratings: "4",
-        category: "Drama"
+        category: "Drama",
+        downloadLink: "https://www.folgerdigitaltexts.org/download/pdf/Ham.pdf"
     },
     {
         id: '3',
@@ -440,7 +442,8 @@ export const topPickes = [
         image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361039443l/41865.jpg",
         description : "Twilight (stylized as twilight) is a 2005 young adult vampire-romance novel by author Stephenie Meyer. It is the first book in the Twilight series, and introduces seventeen-year-old Isabella (Bella) Swan, who moves from Phoenix, Arizona to Forks, Washington. She is endangered after falling in love with Edward Cullen, a vampire.",
         ratings: "3.5",
-        category: "Fiction"
+        category: "Fiction",
+        downloadLink: "http://www.kkoworld.com/kitablar/Stefani_Mayer_Yeni_Ay-eng.pdf"
     },
     {
         id: '4',
@@ -449,7 +452,8 @@ export const topPickes = [
         image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1545249589l/42881101.jpg",
         description : "The Girl in Red by Christina Henry is the latest addition in her gritty fairy tale retellings. They aren’t part of a connected series, but Henry has done retellings of Alice in Wonderland, The Little Mermaid, and Peter Pan. This one retells Little Red Riding Hood where a young woman tries to get to her grandmother’s house following an outbreak of deadly pandemic.",
         ratings: "3.7",
-        category: "Horror"
+        category: "Horror",
+        downloadLink: "http://www.kkoworld.com/kitablar/Stefani_Mayer_Yeni_Ay-eng.pdf"
     },
     {
         id: '5',
@@ -458,7 +462,8 @@ export const topPickes = [
         image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1539772375l/42261227._SX318_.jpg",
         description : "In Tell Me Who You Are, Guo and Vulchi reveal the lines that separate us based on race or other perceived differences and how telling our stories--and listening deeply to the stories of others--are the first and most crucial steps we can take towards negating racial inequity in our culture. ",
         ratings: "3.8",
-        category: "Non-Fiction"
+        category: "Non-Fiction",
+        downloadLink: "http://www.kkoworld.com/kitablar/Stefani_Mayer_Yeni_Ay-eng.pdf"
     },
     {
         id: '6',
@@ -467,6 +472,7 @@ export const topPickes = [
         image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1360206420l/11870085.jpg",
         description : "Despite the tumor-shrinking medical miracle that has bought her a few years, Hazel has never been anything but terminal, her final chapter inscribed upon diagnosis. But when a gorgeous plot twist named Augustus Waters suddenly appears at Cancer Kid Support Group, Hazel's story is about to be completely rewritten.",
         ratings: "4.2",
-        category: "Romance"
+        category: "Romance",
+        downloadLink: "http://www.kkoworld.com/kitablar/Stefani_Mayer_Yeni_Ay-eng.pdf"
     }
 ]

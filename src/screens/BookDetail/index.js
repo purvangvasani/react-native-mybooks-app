@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, Image, Dimensions } from 'react-native'
+import { Text, View, TouchableOpacity, Image, Dimensions, Platform } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Container, Content, Header, Grid, Row, Col } from 'native-base';
+import { Container, Content, Header, Grid, Row, Col, Button } from 'native-base';
 import Toast from 'react-native-simple-toast';
 import * as Animatable from 'react-native-animatable';
 import {connect} from 'react-redux';
 import Carousel from 'react-native-banner-carousel';
+import RNFetchBlob from 'rn-fetch-blob'
 
 import {addCollectionDetails, deleteCollectionDetails} from '../../actions/MyCollection/collection';
 
@@ -29,6 +30,7 @@ class BookDetailScreen extends Component {
             description: this.props.navigation.getParam('description'),
             ratings: this.props.navigation.getParam('rating'),
             category: this.props.navigation.getParam('category'),
+            downloadLink: this.props.navigation.getParam('downloadLink'),
             isFavourite: false
         };
     };
@@ -76,6 +78,36 @@ class BookDetailScreen extends Component {
         }else if(this.state.isFavourite){
             Toast.showWithGravity('Removed from Bookmark.', Toast.SHORT, Toast.BOTTOM)        
         }
+    }
+
+    handleDownloadFile=()=>{
+        let downloadLink = this.state.downloadLink
+        let name = this.state.name
+        Toast.showWithGravity('Downloading .....', Toast.Long, Toast.BOTTOM)        
+        RNFetchBlob
+        .config({
+            addAndroidDownloads : {
+                useDownloadManager : true, // <-- this is the only thing required
+                // Optional, override notification setting (default to true)
+                notification : true,
+                title : name,
+                description : 'An APK that will be installed',
+                // mime : 'application/vnd.android.package-archive',
+                // mediaScannable : true,
+                // Optional, but recommended since android DownloadManager will fail when
+                // the url does not contains a file extension, by default the mime type will be text/plain
+                // mime : 'text/plain',
+                description : ''
+            }
+        })
+        .fetch('GET', downloadLink)
+        .then((resp) => {
+          // the path of downloaded file
+          resp.path()
+        })
+        .catch(err => {
+            console.log("Download failed!--", err);
+        });
     }
 
     render() {
@@ -159,11 +191,26 @@ class BookDetailScreen extends Component {
                         <Text style={{marginTop: 4, fontSize: 16, fontFamily: 'monospace', textAlign: 'justify', color: '#555CC4'}}>{this.state.description}</Text>
                     </Animatable.View>
                     <View style={{borderBottomColor: 'lightgrey', borderBottomWidth: 1, marginTop: 5}}></View>
-                    <Animatable.View animation="zoomIn" delay={200} style={{flexDirection: 'row', justifyContent: 'flex-end', marginRight: 20}}>
-                        <Text style={{marginTop: 10, fontSize: 16, fontFamily: 'monospace', textAlign: 'justify', color: '#555CC4'}}>Available on: </Text>
-                        <Image source={require('../../assets/images/amazon.jpg')} style={{marginTop: 10, width: 30, height: 30}} />
-                        <Image source={require('../../assets/images/flipkart.png')} style={{marginTop: 10, marginLeft: 5, width: 30, height: 30}} />
-                    </Animatable.View>
+                    <Grid>
+                        <Row>
+                            <Col size={30}>
+                                <Animatable.View animation="pulse" easing="ease-out" iterationCount="infinite" style={{flexDirection: 'row', marginTop: 10, justifyContent: 'flex-start'}}>
+                                    <Button bordered style={{flexDirection: 'row'}} onPress={this.handleDownloadFile}>
+                                        <Text style={{fontSize: 16, margin: 10, fontFamily: 'monospace', textAlign: 'justify', color: '#555CC4'}}>Download</Text>
+                                        <Image source={require('../../assets/images/download.png')} style={{width: 40, height: 40, margin: 10,}} />                        
+                                    </Button>
+                                </Animatable.View>
+                            </Col>
+                            <Col size={20}></Col>
+                            <Col size={50}>
+                                <Animatable.View animation="zoomIn" delay={200} style={{flexDirection: 'row', marginTop: 20, justifyContent: 'flex-end', marginRight: 20}}>
+                                    <Text style={{fontSize: 16, fontFamily: 'monospace', textAlign: 'justify', color: '#555CC4'}}>Available on: </Text>
+                                    <Image source={require('../../assets/images/amazon.jpg')} style={{width: 30, height: 30}} />
+                                    <Image source={require('../../assets/images/flipkart.png')} style={{marginLeft: 5, width: 30, height: 30}} />
+                                </Animatable.View>
+                            </Col>
+                        </Row>
+                    </Grid>
                 </Content>
             </Container>
         )

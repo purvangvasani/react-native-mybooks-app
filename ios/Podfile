@@ -30,6 +30,10 @@ target 'MyBooks' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+
+
+  pod 'RNFileViewer', :path => '../node_modules/react-native-file-viewer'
+
   target 'MyBooksTests' do
     inherit! :search_paths
     # Pods for testing
