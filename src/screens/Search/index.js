@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View, FlatList, TextInput, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, FlatList, TextInput } from 'react-native';
 
 import {allBooks} from '../../utils/Constants';
-import { Card, CardItem, Grid, Row, Col } from 'native-base';
-import {  Image } from 'react-native-elements';
+import { Card, CardItem, Grid, Row, Col, Container, Content } from 'native-base';
+import theme from '../../Theme/theme';
+import { variable } from '../../Theme/variable';
+import Loader from '../../components/component/Loader';
+import ImageComponent from '../../components/component/Image';
+import TextComponent from '../../components/component/Text';
 
 class SearchScreen extends Component {
     constructor(props) {
@@ -44,51 +48,52 @@ class SearchScreen extends Component {
 
     render() {
         if(this.state.isLoading){
-            return <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',}}>
-                <ActivityIndicator size="small" color="#0000ff" />
-                <Text style={{color: '#0000ff', fontSize: 14, fontFamily: 'monospace',}}>Please wait..</Text>
-            </View>
+            return <Loader title={"Please Wait.."} />
         }
         else return (
-            <View style={styles.viewStyle}>
-                <TextInput
-                    style={styles.textInputStyle}
-                    onChangeText={text => this.SearchFilterFunction(text)}
-                    value={this.state.text}
-                    underlineColorAndroid="transparent"
-                    placeholder="Search Here"
-                    placeholderTextColor="grey"
-                />  
-                <FlatList
-                    data={this.state.dataSource}
-                    renderItem={(data, index)=>{
-                        return(
-                            <Card key={index}>
-                                <CardItem>
-                                    <Grid>
-                                        <Row>
-                                            <Col size={20}>
-                                                <Image
-                                                     style={{height: 50, width: 40}}
-                                                    rounded
-                                                    source={{ uri: data.item.image}}
-                                                />
-                                            </Col>
-                                            <Col size={80}>
-                                                <Text style={{fontFamily: 'monospace', fontSize: 15, color: '#555CC4', fontWeight: 'bold',}}>{data.item.name}</Text>
-                                                <Text style={{fontFamily: 'monospace', fontSize: 13, color: '#555CC4'}}>By {data.item.author}</Text>
-                                            </Col>
-                                        </Row>
-                                    </Grid>
-                                </CardItem>
-                            </Card>
-                        )
-                    }}
-                    enableEmptySections={true}
-                    style={{ marginTop: 10 }}
-                    // keyExtractor={(item, index) => index}
-                />
-            </View>
+            <Container>
+                <Content padder>
+                    <View style={styles.textInput}>
+                        <TextInput
+                            style={styles.textInputStyle}
+                            onChangeText={text => this.SearchFilterFunction(text)}
+                            value={this.state.text}
+                            underlineColorAndroid="transparent"
+                            placeholder="Search Here"
+                            placeholderTextColor="grey"
+                        />  
+                        <FlatList
+                            data={this.state.dataSource}
+                            renderItem={(data, index)=>{
+                                return(
+                                    <Card key={index}>
+                                        <CardItem>
+                                            <Grid>
+                                                <Row>
+                                                    <Col size={20}>
+                                                        <ImageComponent imageSource={{uri: data.item.image}} style={theme.notificationIcon} />
+                                                    </Col>
+                                                    <Col size={80}>
+                                                        <TextComponent style={[theme.titleText, {fontSize: variable.h5}]}
+                                                            title={data.item.name} />
+                                                        
+                                                        <View style={{flexDirection: variable.flexDirection_Row}}>
+                                                            <TextComponent style={[theme.text, {marginTop: 0, fontSize: variable.h6-1}]}
+                                                                title={"By "+data.item.author} />
+                                                        </View>
+                                                    </Col>
+                                                </Row>
+                                            </Grid>
+                                        </CardItem>
+                                    </Card>
+                                )
+                            }}
+                            enableEmptySections={true}
+                            style={{ marginTop: variable.marginTop_10 }}
+                        />
+                    </View>
+                </Content>
+            </Container>
         );
     }
 }

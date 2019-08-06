@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
-import {SafeAreaView, ScrollView, TouchableOpacity, View, Text, Image} from 'react-native';
+import {SafeAreaView, ScrollView, TouchableOpacity, View} from 'react-native';
 import {connect} from 'react-redux';
 // import { DrawerItems } from 'react-navigation';
 import { DrawerItems} from 'react-navigation';
 import Toast from 'react-native-simple-toast';
 
 import {updateLoginDetails} from '../actions/Login/login';
+import ImageComponent from './component/Image';
+import TextComponent from './component/Text';
 
 
 class CustomDrawerComponent extends Component {
@@ -28,9 +30,9 @@ class CustomDrawerComponent extends Component {
     return (
       <SafeAreaView style={{flex : 1}}>
         <View style={{backgrounColor: '#555CC4', height: 150, alignItems: 'center', justifyContent: 'center'}}>
-            <Image source={require('../assets/images/appIcon.png')} style={{width: 100, height: 100,}} />
+            <ImageComponent style={{width: 100, height: 100}} imageSource={require('../assets/images/appIcon.png')}/>
             {flag 
-            ? <Text style={{fontWeight:'bold', color: '#555CC4', fontSize: 16}}>Welcome, {name}</Text>
+            ? <TextComponent style={{fontWeight:'bold', color: '#555CC4', fontSize: 16}} title={"Welcome, "+name} /> 
             : null
           }
         </View>
@@ -38,14 +40,14 @@ class CustomDrawerComponent extends Component {
           <DrawerItems {...this.props} />
           {flag 
             ? <TouchableOpacity style={{margin: 15}} onPress={()=>this.props.navigation.push('RequestBook')}>
-                <Text style={{fontWeight:'bold'}}>Request Book</Text>
+                <TextComponent style={{fontWeight:'bold', fontSize: 14}} title={"Request Book"} />
               </TouchableOpacity>
             : null
           }
         </ScrollView>
         {flag 
             ? <TouchableOpacity style={{margin: 15}} onPress={this.handleLogout}>
-                <Text style={{fontWeight:'bold'}}>Logout</Text>
+                <TextComponent style={{fontWeight:'bold', fontSize: 14}} title={"Logout"} />
               </TouchableOpacity>
             : null
           }
@@ -60,6 +62,7 @@ const mapStateToProps = state => {
       login: state.login.users
   }
 }
+
 const mapDispatchToProps = dispatch => {
   return {
       update: (id, Email, Password, isLogged) => {

@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { View, TextInput, Picker } from 'react-native'
-import { Text, Content, Grid, Row, Col, Button } from 'native-base';
+import { Content, Grid, Row, Col, Button } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {connect} from 'react-redux';
 import Toast from 'react-native-simple-toast';
 
 import {addBookRequestDetails} from '../../actions/RequestBook/requestBook';
+import theme from '../../Theme/theme';
+import { variable } from '../../Theme/variable';
+import TextComponent from '../../components/component/Text';
 
 class Form extends Component {
     constructor(props) {
@@ -56,11 +59,11 @@ class Form extends Component {
                 <View>
                     <Grid>
                         <Row>
-                            <Col size={10} style={{marginTop: 25,}}>
-                                <Icon name="book" size={22} color={'#555CC4'} />
+                            <Col size={10} style={{marginTop: variable.marginTop_10+15,}}>
+                                <Icon name="book" size={variable.h2} color={variable.cPrimary} />
                             </Col>
-                            <Col size={90} style={{margin: 10,}}>
-                                <TextInput style={{borderBottomWidth: 1, borderBottomColor: '#555CC4', color: '#555CC4', fontFamily: 'monospace',}}
+                            <Col size={90} style={{margin: variable.margin_10,}}>
+                                <TextInput style={theme.textInput}
                                     placeholder="Book Name" onChangeText={(text) => {this.onChange(text, 'BookName')}}
                                     ref={input => { this.BookInput = input }} 
                                 />
@@ -71,11 +74,11 @@ class Form extends Component {
                 <View>
                     <Grid>
                         <Row>
-                            <Col size={10} style={{marginTop: 25,}}>
-                                <Icon name="user" size={22} color={'#555CC4'} />
+                            <Col size={10} style={{marginTop: variable.marginTop_10+15,}}>
+                                <Icon name="user" size={variable.h2} color={variable.cPrimary} />
                             </Col>
-                            <Col size={90} style={{margin: 10,}}>
-                                <TextInput style={{borderBottomWidth: 1, borderBottomColor: '#555CC4', color: '#555CC4', fontFamily: 'monospace',}}
+                            <Col size={90} style={{margin: variable.margin_10,}}>
+                                <TextInput style={theme.textInput}
                                     placeholder="Author Name" ref={input => { this.AuthorInput = input }} 
                                     onChangeText={(text) => {this.onChange(text, 'AuthorName')}}
                                 />
@@ -86,11 +89,11 @@ class Form extends Component {
                 <View>
                     <Grid>
                         <Row>
-                            <Col size={10} style={{marginTop: 25,}}>
-                                <Icon name="indent" size={22} color={'#555CC4'} />
+                            <Col size={10} style={{marginTop: variable.marginTop_10+15,}}>
+                                <Icon name="indent" size={variable.h2} color={variable.cPrimary} />
                             </Col>
-                            <Col size={90} style={{margin: 10,}}>
-                                <TextInput style={{borderBottomWidth: 1, borderBottomColor: '#555CC4', color: '#555CC4', fontFamily: 'monospace',}}
+                            <Col size={90} style={{margin: variable.margin_10,}}>
+                                <TextInput style={theme.textInput}
                                     placeholder="Description" ref={input => { this.DescriptionInput = input }} 
                                     onChangeText={(text) => {this.onChange(text, 'Description')}} 
                                     multiline = {true} numberOfLines = {4}
@@ -102,11 +105,11 @@ class Form extends Component {
                 <View>
                     <Grid>
                         <Row>
-                            <Col size={10} style={{marginTop: 25,}}>
-                                <Icon name="th" size={22} color={'#555CC4'} />
+                            <Col size={10} style={{marginTop: variable.marginTop_10+15,}}>
+                                <Icon name="th" size={variable.h2} color={variable.cPrimary} />
                             </Col>
-                            <Col size={90} style={{margin: 10,}}>
-                                <TextInput style={{borderBottomWidth: 1, borderBottomColor: '#555CC4', color: '#555CC4', fontFamily: 'monospace',}}
+                            <Col size={90} style={{margin: variable.margin_10,}}>
+                                <TextInput style={theme.textInput}
                                     placeholder="Category" ref={input => { this.CategoryInput = input }} 
                                     onChangeText={(text) => {this.onChange(text, 'Category')}}
                                 />
@@ -121,7 +124,8 @@ class Form extends Component {
                                 <Icon name="star-half" size={22} color={'#555CC4'} />
                             </Col>
                             <Col size={30}>
-                                <Text style={{marginTop: 15, color: '#555CC4', fontFamily: 'monospace',}}>Rating</Text>
+                                <TextComponent style={{marginTop: 15, color: '#555CC4', fontFamily: 'monospace',}}
+                                    title={"Rating"} />
                             </Col>
                             <Col size={60}>
                                 <Picker
@@ -138,9 +142,10 @@ class Form extends Component {
                         </Row>
                     </Grid>                    
                 </View>
-                <View style={{margin: 10}}>
+                <View style={{margin: variable.margin_10}}>
                     <Button style={{borderRadius: 30}} block onPress={this.handleAddRequestBook}>
-                        <Text style={{fontFamily: 'monospace', fontSize: 15}}>Submit</Text>
+                        <TextComponent style={{fontFamily: variable.DefaultFontFamily, fontSize: 15}}
+                            title={"Submit"} />
                     </Button>
                 </View>
             </Content>
@@ -149,9 +154,6 @@ class Form extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log('====================================');
-    console.log(state.requestBook.requestBooks);
-    console.log('====================================');
     return {
         requestBook: state.requestBook.requestBooks
     }

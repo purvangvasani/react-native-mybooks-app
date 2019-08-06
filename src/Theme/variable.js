@@ -1,13 +1,13 @@
 export const variable = {
 
     // Color
-    cPrimary: '#8A2BE2',
-    cSuccess: '#008000',
-    cWarning: '#FFFF00',
+    cPrimary: '#555CC4',
+    // cSuccess: '#008000',
+    // cWarning: '#FFFF00',
     cDanger: '#B22222',
-    cInfo: '#E6E6FA',
-    cDark:'#464957',
-    cLight: '#DCDCDC',
+    // cInfo: '#E6E6FA',
+    // cDark:'#464957',
+    // cLight: '#DCDCDC',
     cWhite: 'white',
 
     primary: '#555CC4',
@@ -27,7 +27,7 @@ export const variable = {
     blue: '#5A81F7',
     bluish: '#F1F1F7',
     black: '#000000',
-    green: '#6DD0A3',
+    green: 'green',
     yellow: '#ffc247',
 
 
@@ -43,7 +43,7 @@ export const variable = {
 
     fontWeightBold: 'bold',
 
-    DefaultFontFamily: 'Roboto_medium',
+    DefaultFontFamily: 'monospace',
 
     h1: 24,
     h2: 22,
@@ -63,11 +63,6 @@ export const variable = {
     btnLight: '#DCDCDC',
 
 
-    // Text
-    errorText: '#FF0000',
-    successText: '#008000',
-
-
     // Title
     titleFontFamily: 'Roboto_medium',
     titleFontSize: 20,
@@ -78,12 +73,19 @@ export const variable = {
 
     // Alignment
     alignRight: 'right',
-    alignItemsCenter: 'center',
     alignCenter: 'center',
-    alignLeft: 'Left',
+    alignLeft: 'left',
+    alignJustify: 'justify',
     
     flexDirection_Row: 'row',
     flexDirection_Column: 'column',
+
+    alignItems_center: 'center',
+    alignItems_start: 'flex-start',
+    alignItems_end: 'flex-end',
+    justifyContent_center: 'center',
+    justifyContent_start: 'flex-start',
+    justifyContent_end: 'flex-end',
 
     margin_10: 10,
     marginTop_10: 10,

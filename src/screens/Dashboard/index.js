@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Container, List, ListItem, Text, Content, Grid, Row, Col } from 'native-base';
-import { View, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { Container, List, ListItem, Content } from 'native-base';
+import { View, TouchableOpacity, ScrollView } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -12,20 +12,19 @@ import { variable } from '../../Theme/variable';
 import SearchScreen from '../Search';
 import BookmarkScreen from '../Bookmark';
 import ProfileScreen from '../Profile';
-import MyCollectionScreen from '../Collection';
+import ImageComponent from '../../components/component/Image';
+import TextComponent from '../../components/component/Text';
 
 export class DashboardScreen extends Component {
 
     renderTopPicks = () => {
         return topPickes.map((item, key) =>
             <Animatable.View animation="flipInX" delay={500} key={key} style={{marginLeft: variable.marginLeft_10}}>
-                <View style={{width: 120, height: 180,}}>
+                <View style={theme.dashboardBookImage}>
                     <TouchableOpacity onPress={()=> this.props.navigation.navigate('BookDetail', {id: item.id, name: item.name, author: item.author, image: item.image, description: item.description, rating: item.ratings, category: item.category, downloadLink: item.downloadLink})}
                         style={[theme.tileDashboard, {borderWidth: 0}]}>
-                        <Image
-                            // resizeMode="contain"
-                            source={{uri: item.image}}
-                            style={{height: 180, width: 120}} /> 
+                            <ImageComponent imageSource={{uri: item.image}}
+                                style={theme.dashboardBookImage} /> 
                     </TouchableOpacity>
                 </View>
             </Animatable.View>
@@ -39,52 +38,52 @@ export class DashboardScreen extends Component {
                 <Content>
                     <List>
                         <ListItem itemDivider>
-                          <Text style={{fontFamily: 'monospace', fontSize: 14}}>Categories</Text>
+                            <TextComponent style={theme.dashboardTitle} title={"Categories"} />
                         </ListItem>                    
                         <View style={{flexDirection: variable.flexDirection_Row, paddingHorizontal: 10, marginTop: 10}}>
-                            <Animatable.View animation="fadeInLeftBig" easing="ease-in" delay={300} style={{width: 131}}>
+                            <Animatable.View animation="fadeInLeftBig" easing="ease-in" delay={300} style={theme.dashboardViewWidth}>
                                 <TouchableOpacity onPress={()=>{this.props.navigation.navigate('CategoryBook', {title: 'Adventure'})}}
-                                    style={[theme.tileDashboard ,{borderColor: '#829BF8'}]}>
-                                    <Text style={theme.tileText}>Adventure</Text>
+                                    style={theme.tileDashboard}>
+                                        <TextComponent style={theme.tileText} title={"Adventure"} />
                                 </TouchableOpacity>
                             </Animatable.View>
-                            <Animatable.View animation="fadeInLeftBig" easing="ease-in" delay={200} style={{width: 131}}>
+                            <Animatable.View animation="fadeInLeftBig" easing="ease-in" delay={200} style={theme.dashboardViewWidth}>
                                 <TouchableOpacity onPress={()=>{this.props.navigation.navigate('CategoryBook', {title: 'Drama'})}}
-                                    style={[theme.tileDashboard ,{borderColor: '#829BF8'}]}>
-                                    <Text style={theme.tileText}>Drama</Text>
+                                    style={theme.tileDashboard}>
+                                        <TextComponent style={theme.tileText} title={"Drama"} />
                                 </TouchableOpacity>
                             </Animatable.View>
-                            <Animatable.View animation="fadeInLeftBig" easing="ease-in" delay={100} style={{width: 131}}>
+                            <Animatable.View animation="fadeInLeftBig" easing="ease-in" delay={100} style={theme.dashboardViewWidth}>
                                 <TouchableOpacity onPress={()=>{this.props.navigation.navigate('CategoryBook', {title: 'Fiction'})}}
-                                    style={[theme.tileDashboard ,{borderColor: '#829BF8'}]}>
-                                    <Text style={theme.tileText}>Fiction</Text>
+                                    style={theme.tileDashboard}>
+                                        <TextComponent style={theme.tileText} title={"Fiction"} />
                                 </TouchableOpacity>
                             </Animatable.View>
                         </View> 
                         <View style={{flexDirection: variable.flexDirection_Row, paddingHorizontal: 10, marginTop: 10}}>
-                            <Animatable.View animation="fadeInLeftBig" easing="ease-in" delay={300} style={{width: 131}}>
+                            <Animatable.View animation="fadeInLeftBig" easing="ease-in" delay={300} style={theme.dashboardViewWidth}>
                                 <TouchableOpacity onPress={()=>{this.props.navigation.navigate('CategoryBook', {title: 'Horror'})}}
-                                    style={[theme.tileDashboard ,{borderColor: '#829BF8'}]}>
-                                    <Text style={theme.tileText}>Horror</Text>
+                                    style={theme.tileDashboard}>
+                                        <TextComponent style={theme.tileText} title={"Horror"} />
                                 </TouchableOpacity>
                             </Animatable.View>
-                            <Animatable.View animation="fadeInLeftBig" easing="ease-in" delay={200} style={{width: 131}}>
+                            <Animatable.View animation="fadeInLeftBig" easing="ease-in" delay={200} style={theme.dashboardViewWidth}>
                                 <TouchableOpacity onPress={()=>{this.props.navigation.navigate('CategoryBook', {title: 'Non-Fiction'})}}
-                                    style={[theme.tileDashboard ,{borderColor: '#829BF8'}]}>
-                                    <Text style={theme.tileText}>Non-Fiction</Text>
+                                    style={theme.tileDashboard}>
+                                        <TextComponent style={theme.tileText} title={"Non-Fiction"} />
                                 </TouchableOpacity>
                             </Animatable.View>
-                            <Animatable.View animation="fadeInLeftBig" easing="ease-in" delay={100} style={{width: 131}}>
+                            <Animatable.View animation="fadeInLeftBig" easing="ease-in" delay={100} style={theme.dashboardViewWidth}>
                                 <TouchableOpacity onPress={()=>{this.props.navigation.navigate('CategoryBook', {title: 'Romance'})}}
-                                    style={[theme.tileDashboard ,{borderColor: '#829BF8'}]}>
-                                    <Text style={theme.tileText}>Romance</Text>
+                                    style={theme.tileDashboard}>
+                                        <TextComponent style={theme.tileText} title={"Romance"} />
                                 </TouchableOpacity>
                             </Animatable.View>
                         </View> 
                         <ListItem itemDivider>
-                            <Text style={{fontFamily: 'monospace', fontSize: 14}}>Top Pickes</Text>
+                            <TextComponent style={theme.dashboardTitle} title={"Top Pickes"} />
                             <Animatable.View animation="pulse" easing="ease-out" iterationCount="infinite">
-                                <Text style={{fontFamily: 'monospace', fontSize: 14, color: 'green', marginLeft: 10}}>(NEW ARRIVALS)</Text>
+                                <TextComponent style={theme.newBadge} title={"(NEW ARRIVALS)"} />
                             </Animatable.View>
                         </ListItem>  
                         <View style={{ flexDirection: variable.flexDirection_Row }}>
@@ -105,7 +104,6 @@ const TabNavigator = createBottomTabNavigator({
     Dashboard: DashboardScreen,
     Search: SearchScreen,
     Bookmark: BookmarkScreen,
-    // Collection: MyCollectionScreen
     Profile: ProfileScreen
 },{
     defaultNavigationOptions: ({ navigation }) => ({

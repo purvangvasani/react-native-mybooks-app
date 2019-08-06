@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View , BackHandler, Image, TouchableOpacity, TextInput, Dimensions} from 'react-native';
+import { View , BackHandler, TouchableOpacity, TextInput} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/AntDesign';
 import * as Animatable from "react-native-animatable";
-import { Button, Text } from 'native-base';
+import { Button } from 'native-base';
 import {connect} from 'react-redux';
 import Toast from 'react-native-simple-toast';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -10,9 +10,9 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {updateLoginDetails} from '../../actions/Login/login';
 import { validateEmail, validatePassword } from '../../validate';
 import { variable } from '../../Theme/variable';
-
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
+import theme from '../../Theme/theme';
+import ImageComponent from '../../components/component/Image';
+import TextComponent from '../../components/component/Text';
 
 class LoginScreen extends Component {
     constructor(props) {
@@ -99,57 +99,58 @@ class LoginScreen extends Component {
 
     render() {
         return (
-            <View style={{flex: 1}}>
+            <View style={theme.container}>
                 <View>
-                    <View style={{ alignItems: 'center', marginTop: 10,}}>
-                        <Image source={require('../../assets/images/appIcon.png')} style={{width: 200, height: 200,}} />
+                    <View style={theme.loginContent}>
+                        <ImageComponent imageSource={require('../../assets/images/appIcon.png')}
+                            style={{width: 200, height: 200,}} />
                     </View>
-                    <View style={{alignItems: variable.alignItemsCenter, marginTop: variable.marginTop_10 }}>
-                        <Animatable.View animation="fadeInDown" delay={200} style={{width: width-50, paddingLeft: variable.paddingLeft_15, paddingRight: variable.paddingRight_15,}}>
-                            <TextInput style={{color: '#555CC4', borderBottomWidth: variable.borderBottomWidth_1, borderBottomColor: '#555CC4', fontFamily: 'monospace',}}
+                    <View style={theme.loginContent}>
+                        <Animatable.View animation="fadeInDown" delay={200} style={theme.loginView}>
+                            <TextInput style={theme.textInput}
                                 onChangeText={(text) => {this.onChange(text, 'email')}}
                                 ref={input => { this.emailInput = input }}
                                 onBlur={() => {this.onChange(this.state.Email, 'email')}}
                                 placeholder="Email"
                             />
                             { this.state.isEmail &&
-                                <Text style={{ color: variable.cDanger, fontFamily: 'monospace', fontSize: 14 }}>{this.state.email_err_msg}</Text>
+                                <TextComponent style={theme.errorText} title={this.state.email_err_msg} />  
                             }
                         </Animatable.View>
-                        <Animatable.View animation="fadeInDown" delay={300} style={{width: width-50, paddingLeft: variable.paddingLeft_15, paddingRight: variable.paddingRight_15, paddingTop: variable.paddingTop_15,}}>
-                            <TextInput style={{borderBottomWidth: variable.borderBottomWidth_1, borderBottomColor: '#555CC4', color: '#555CC4', fontFamily: 'monospace'}}
+                        <Animatable.View animation="fadeInDown" delay={300} style={[theme.loginView, {paddingTop: variable.paddingTop_15,}]}>
+                            <TextInput style={theme.textInput}
                                 placeholder="Password" secureTextEntry={true}
                                 ref={input => { this.passwordInput = input }}
                                 onChangeText={(text) => {this.onChange(text, 'password')}}
                                 onBlur={() => {this.onChange(this.state.Password, 'password')}}
                             />
                             { this.state.isPass &&
-                                <Text style={{ color: variable.cDanger, fontFamily: 'monospace', fontSize: 14 }}>{this.state.password_err_msg}</Text>
+                                <TextComponent style={theme.errorText} title={this.state.password_err_msg} />  
                             }
                         </Animatable.View>
-                        <Animatable.View animation="fadeInDown" delay={400} style={{width: width-50, paddingLeft: variable.paddingLeft_15, paddingRight: variable.paddingRight_15, paddingTop: variable.paddingTop_15,}}>
-                            <Button block style={{backgroundColor: '#555CC4'}} onPress={this.handleUserLogin}>
-                                <Text style={{color: variable.cWhite, fontFamily: 'monospace'}}>Sign In</Text>
+                        <Animatable.View animation="fadeInDown" delay={400} style={[theme.loginView, {paddingTop: variable.paddingTop_15,}]}>
+                            <Button block style={{backgroundColor: variable.cPrimary}} onPress={this.handleUserLogin}>
+                                <TextComponent style={theme.buttonText} title={"Sign In"} />
                             </Button>
                         </Animatable.View>
-                        <Animatable.View animation="fadeInDown" delay={500} style={{width: width-50, paddingLeft: variable.paddingLeft_15, paddingRight: variable.paddingRight_15, paddingTop: variable.paddingTop_15,}}>
+                        <Animatable.View animation="fadeInDown" delay={500} style={[theme.loginView, {paddingTop: variable.paddingTop_15,}]}>
                             <TouchableOpacity>
-                                <Text style={{fontSize: variable.fontMedium, textAlign: variable.alignRight, color: '#555CC4', fontFamily: 'monospace'}}>Forget Password?</Text>
+                                <TextComponent style={theme.linkButtonText} title={"Forget Password?"} />
                             </TouchableOpacity>
                         </Animatable.View>
                     </View>
-                    <Animatable.View animation="fadeInDown" delay={600} style={{alignItems: variable.alignItemsCenter, marginTop: 40 }}>
-                        <Button bordered style={{marginTop: 3, borderColor: '#555CC4'}}>
-                            <Icon name="google" size={24} style={{color: '#555CC4', left: 5,}}/> 
-                            <Text style={{color: '#555CC4', fontFamily: 'monospace'}}>Sign In with Google</Text>
+                    <Animatable.View animation="fadeInDown" delay={600} style={[theme.loginContent, {marginTop: 30}]}>
+                        <Button bordered>
+                            <Icon name="google" size={variable.h1} style={theme.iconButtonIconStyle}/> 
+                            <TextComponent style={theme.iconButtonText} title={"Sign In with Google"} />
                         </Button>
                     </Animatable.View>
-                    <View style={{alignItems: variable.alignItemsCenter, marginTop: 40, }}>
-                        <Animatable.View animation="fadeInDown" delay={700}>                                
-                            <Text style={{color: variable.cDark, fontFamily: 'monospace'}}>Don't have an account? </Text>
-                                <Button transparent block onPress={()=>this.props.navigation.navigate('Signup')}>
-                                    <Text style={{color: variable.cPrimary, fontFamily: 'monospace'}}>Register</Text>
-                                </Button>
+                    <View style={[theme.loginContent, {marginTop: 30}]}>
+                        <Animatable.View animation="fadeInDown" delay={700} style={{flexDirection: variable.flexDirection_Row}}>                                
+                            <TextComponent style={{color: variable.cDark, fontFamily: variable.DefaultFontFamily}} title={"Don't have an account? "} />
+                                <TouchableOpacity onPress={()=>this.props.navigation.navigate('Signup')}>
+                                    <TextComponent style={theme.linkButtonText} title={"Register"} />
+                                </TouchableOpacity>
                         </Animatable.View>
                     </View>
                 </View>

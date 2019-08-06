@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity } from 'react-native'
-import { Container, Content, Header, Left, Body, Row, Grid, Col } from 'native-base';
+import { View, TouchableOpacity } from 'react-native'
+import { Container, Content, Header, Row, Grid, Col } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { FlatGrid } from 'react-native-super-grid';
 
@@ -10,7 +10,10 @@ import { adventureCategory,
         horrorCategory, 
         nonfictionCategory, 
         romanceCategory } from '../../utils/Constants';
-import { Image } from 'react-native-elements';
+import { variable } from '../../Theme/variable';
+import theme from '../../Theme/theme';
+import ImageComponent from '../../components/component/Image';
+import TextComponent from '../../components/component/Text';
 
 class CategoryBook extends Component {
     constructor(props) {
@@ -43,18 +46,16 @@ class CategoryBook extends Component {
     render() {
         return (
             <Container>
-                <Header style={{backgroundColor: 'white'}}>
+                <Header style={{backgroundColor: variable.cWhite}}>
                     <Grid>
                         <Row>
                             <Col size={10}>
-                                <TouchableOpacity style={{width: 20}} onPress={()=> this.props.navigation.goBack()}>
-                                    <Icon name="angle-left" style={{marginTop: 14}} size={26} color={'#555CC4'} />
+                                <TouchableOpacity onPress={()=> this.props.navigation.goBack()}>
+                                    <Icon name="angle-left" style={{marginTop: variable.marginTop_10+4}} size={variable.h1} color={variable.cPrimary} />
                                 </TouchableOpacity>
                             </Col>
                             <Col size={90}>
-                                <Text style={{marginTop: 16, color: '#555CC4', fontSize: 17, fontFamily: 'monospace',}}>
-                                    {this.state.title}
-                                </Text>
+                                <TextComponent style={theme.text} title={this.state.title} />
                             </Col>
                         </Row>
                     </Grid>
@@ -70,12 +71,9 @@ class CategoryBook extends Component {
                         // spacing={20}
                         renderItem={({ item, index }) => (
                             <View>
-                                <View style={{ justifyContent: 'flex-end', alignItems: 'center', borderRadius: 5, padding: 10, marginTop: 10, height: 250, }}>
-                                    <View style={{width: 180, height: 250}}>
-                                        <Image
-                                            // resizeMode="contain"
-                                            source={{uri: item.image}}
-                                            style={{height: 250, width: 180}} /> 
+                                <View style={theme.categoryBookView}>
+                                    <View style={theme.categoryBookImage}>
+                                        <ImageComponent imageSource={{uri: item.image}} style={theme.categoryBookImage} /> 
                                     </View>
                                 </View>
                             </View>

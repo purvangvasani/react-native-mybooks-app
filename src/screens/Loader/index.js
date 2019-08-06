@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
 import {connect} from 'react-redux';
 
 import {updateLoginDetails} from '../../actions/Login/login';
+import Loader from '../../components/component/Loader';
+
 class LoaderScreen extends Component {
     constructor(props) {
         super(props);
@@ -20,10 +21,7 @@ class LoaderScreen extends Component {
 
     render() {
         return (
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',}}>
-                <ActivityIndicator size="small" color="#0000ff" />
-                <Text style={{color: '#0000ff', fontSize: 14, fontFamily: 'monospace',}}>Loading..</Text>
-            </View>
+            <Loader title={"Loading.."}/>
         );
     }
 }

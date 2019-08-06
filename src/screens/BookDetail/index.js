@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, Image, Dimensions, Platform } from 'react-native'
+import { View, TouchableOpacity, Dimensions } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Container, Content, Header, Grid, Row, Col, Button } from 'native-base';
 import Toast from 'react-native-simple-toast';
@@ -9,9 +9,12 @@ import Carousel from 'react-native-banner-carousel';
 import RNFetchBlob from 'rn-fetch-blob'
 
 import {addCollectionDetails, deleteCollectionDetails} from '../../actions/MyCollection/collection';
+import theme from '../../Theme/theme';
+import { variable } from '../../Theme/variable';
+import ImageComponent from '../../components/component/Image';
+import TextComponent from '../../components/component/Text';
 
 const BannerWidth = Dimensions.get('window').width;
-const BannerHeight = 260;
 
 const images = [
     "https://www.nic.lat/wp-content/uploads/2019/01/bigstock-Stack-Of-Books-70033240.jpg",
@@ -37,8 +40,8 @@ class BookDetailScreen extends Component {
     
     renderPage(image, index) {
         return (
-            <Animatable.View key={index} animation="zoomIn" delay={200} style={{flex:1, alignItems: 'center',}}>
-                <Image style={{ width: 250, height: 220 }} source={{ uri: image }} />
+            <Animatable.View key={index} animation="zoomIn" delay={200} style={{flex: 1, alignItems: variable.alignItems_center,}}>
+                <ImageComponent style={{width: 250, height: 220}} imageSource={{ uri: image }} />
             </Animatable.View>
         );
     }
@@ -111,19 +114,18 @@ class BookDetailScreen extends Component {
     }
 
     render() {
-        
         return (
             <Container>
-                <Header style={{backgroundColor: 'white'}}>
+                <Header style={{backgroundColor: variable.cWhite}}>
                     <Grid>
                         <Row>
                             <Col size={10}>
                                 <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
-                                    <Icon name="angle-left" style={{marginTop: 14}} size={26} color={'#555CC4'} />
+                                    <Icon name="angle-left" style={{marginTop: variable.marginTop_10+4}} size={variable.h1} color={variable.cPrimary} />
                                 </TouchableOpacity>
                             </Col>
                             <Col size={90} style={{marginTop:-2}}>
-                                <Text style={{marginTop: 17, color: '#555CC4', fontSize: 17, fontFamily: 'monospace',}}>Book Detail</Text>
+                                <TextComponent style={theme.text} title={"Book Detail"} />
                             </Col>
                         </Row>
                     </Grid>
@@ -133,12 +135,12 @@ class BookDetailScreen extends Component {
                         <Row>
                             <Col size={70}>
                                 <Animatable.View animation="zoomIn" delay={200}>
-                                    <Text style={{marginTop: 4, fontFamily: 'monospace', fontSize: 22, fontWeight: 'bold', color: '#555CC4'}}>{this.state.name}</Text>
+                                    <TextComponent style={theme.titleText} title={this.state.name} />
                                 </Animatable.View>
                             </Col>
                             <Col size={30}>
                                 <Animatable.View animation="zoomIn" delay={200}>
-                                    <Text style={{marginTop: 8, fontFamily: 'monospace', fontSize: 14, borderRadius: 10, color: '#555CC4', textAlign :'center', borderColor: '#555CC4', borderWidth: 1}}>{this.state.category}</Text>
+                                    <TextComponent style={theme.categoryStyle} title={this.state.category} />
                                 </Animatable.View>
                             </Col>
                         </Row>
@@ -148,22 +150,24 @@ class BookDetailScreen extends Component {
                             <Row>
                                 <Col size={90}>
                                     <Animatable.View animation="zoomIn" delay={200}>
-                                        <Text style={{fontFamily: 'monospace', fontSize: 14, textAlign: 'left'}}>By <Text style={{fontWeight: 'bold', color: '#555CC4'}}>{this.state.author}</Text></Text>
+                                        <View style={{flexDirection: variable.flexDirection_Row,}}>
+                                            <TextComponent style={{fontFamily: variable.DefaultFontFamily, fontSize: variable.h6}} title={"By"} />
+                                            <TextComponent style={{fontFamily: variable.DefaultFontFamily, fontWeight: variable.fontWeightBold, color: variable.cPrimary}} title={this.state.author} />
+                                        </View>
                                     </Animatable.View>
                                 </Col>
                                 <Col size={10}>
                                         <TouchableOpacity onPress={this.handleBookmark}>
                                             {this.state.isFavourite ? 
                                                 <Animatable.View animation="zoomIn">
-                                                    <Icon name="heart" size={22} color={'red'} />
+                                                    <Icon name="heart" size={variable.h2} color={variable.cDanger} />
                                                 </Animatable.View>
-                                            :   <Icon name="heart-o" size={22} color={'#555CC4'} />}
+                                            :   <Icon name="heart-o" size={variable.h2} color={variable.cPrimary} />}
                                         </TouchableOpacity>
                                 </Col>
                             </Row>
                         </Grid>
                     </View>
-                    {/* <View style={{borderBottomColor: 'lightgrey', borderBottomWidth: 1, marginTop: 5}}></View> */}
                     <Carousel
                         autoplay
                         autoplayTimeout={2000}
@@ -173,40 +177,40 @@ class BookDetailScreen extends Component {
                     >
                         {images.map((image, index) => this.renderPage(image, index))}
                     </Carousel>
-                    {/* <Animatable.View  animation="zoomIn" delay={500} style={{flex: 1, alignItems: 'center', marginTop: 10}}>
-                        <Image
-                            source={{ uri: this.state.image }}
-                            style={{ width: 150, height: 220 }}
-                        />
-                    </Animatable.View> */}
                     <Animatable.View animation="zoomIn" delay={200}>
-                        <Text style={{marginTop: 4, color: '#555CC4', fontFamily: 'monospace', fontSize: 18, fontWeight: 'bold'}}>
-                            {this.state.ratings}
-                            <Image source={require('../../assets/images/ratings.png')} style={{width: 100, height: 20}}/>
-                        </Text>
-                        <Text style={{marginTop: 4, fontFamily: 'monospace', fontSize: 14, color: '#555CC4'}}>895 Ratings on Google Play</Text>
+                        <View style={{flexDirection: variable.flexDirection_Row,}}>
+                            <TextComponent style={[theme.titleText, {fontSize: variable.h4}]}
+                                title={this.state.ratings} />
+                            <ImageComponent imageSource={require('../../assets/images/ratings.png')} style={{width: 100, height: 20, marginTop: variable.marginTop_10-2}}/>
+                        </View>
+                        <TextComponent style={[theme.titleText, {fontSize: variable.h6}]}
+                            title={"895 Ratings on Google Play"} />
                     </Animatable.View>
-                    <View style={{borderBottomColor: 'lightgrey', borderBottomWidth: 1, marginTop: 5}}></View>
+                    <View style={theme.dividerLine}></View>
                     <Animatable.View animation="zoomIn" delay={200}>
-                        <Text style={{marginTop: 4, fontSize: 16, fontFamily: 'monospace', textAlign: 'justify', color: '#555CC4'}}>{this.state.description}</Text>
+                        <TextComponent style={[theme.titleText,{fontSize: variable.h5, textAlign: variable.alignJustify}]}
+                            title={this.state.description} />
                     </Animatable.View>
-                    <View style={{borderBottomColor: 'lightgrey', borderBottomWidth: 1, marginTop: 5}}></View>
+                    <View style={theme.dividerLine}></View>
                     <Grid>
                         <Row>
                             <Col size={30}>
-                                <Animatable.View animation="pulse" easing="ease-out" iterationCount="infinite" style={{flexDirection: 'row', marginTop: 10, justifyContent: 'flex-start'}}>
-                                    <Button bordered style={{flexDirection: 'row'}} onPress={this.handleDownloadFile}>
-                                        <Text style={{fontSize: 16, margin: 10, fontFamily: 'monospace', textAlign: 'justify', color: '#555CC4'}}>Download</Text>
-                                        <Image source={require('../../assets/images/download.png')} style={{width: 40, height: 40, margin: 10,}} />                        
+                                <Animatable.View animation="pulse" easing="ease-out" iterationCount="infinite" 
+                                    style={{flexDirection: 'row', marginTop: 10, justifyContent: 'flex-start'}}>
+                                    <Button bordered style={{flexDirection: variable.flexDirection_Row}} onPress={this.handleDownloadFile}>
+                                        <TextComponent style={[theme.text,{marginTop: 0, marginLeft: 7, fontSize: variable.h6}]}
+                                            title={"Download"} />
+                                        <ImageComponent imageSource={require('../../assets/images/download.png')} style={[theme.downloadButtonStyle]}/>
                                     </Button>
                                 </Animatable.View>
                             </Col>
                             <Col size={20}></Col>
                             <Col size={50}>
-                                <Animatable.View animation="zoomIn" delay={200} style={{flexDirection: 'row', marginTop: 20, justifyContent: 'flex-end', marginRight: 20}}>
-                                    <Text style={{fontSize: 16, fontFamily: 'monospace', textAlign: 'justify', color: '#555CC4'}}>Available on: </Text>
-                                    <Image source={require('../../assets/images/amazon.jpg')} style={{width: 30, height: 30}} />
-                                    <Image source={require('../../assets/images/flipkart.png')} style={{marginLeft: 5, width: 30, height: 30}} />
+                                <Animatable.View animation="zoomIn" delay={200} style={{flexDirection: variable.flexDirection_Row, marginTop: variable.marginTop_10+10, justifyContent: variable.justifyContent_end, marginRight: variable.marginRight_10+10}}>
+                                    <TextComponent style={[theme.text, {marginTop: 0, fontSize: variable.h5}]}
+                                        title={"Available on: "} />
+                                    <ImageComponent imageSource={require('../../assets/images/amazon.jpg')} style={{width: 30, height: 30}} />
+                                    <ImageComponent imageSource={require('../../assets/images/flipkart.png')} style={{width: 30, height: 30}} />
                                 </Animatable.View>
                             </Col>
                         </Row>

@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, FlatList, Alert } from 'react-native'
-import { Text, Container, Header, Grid, Row, Col, Content, Card, CardItem} from 'native-base';
+import { Container, Header, Grid, Row, Col, Content, Card, CardItem} from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {connect} from 'react-redux';
 import Toast from 'react-native-simple-toast';
 
 import {deleteCollectionDetails} from '../../actions/MyCollection/collection';
-import { Image } from 'react-native-elements';
+import { variable } from '../../Theme/variable';
+import theme from '../../Theme/theme';
+import ImageComponent from '../../components/component/Image';
+import TextComponent from '../../components/component/Text';
 
 class MyCollectionScreen extends Component {
 
@@ -48,28 +51,27 @@ class MyCollectionScreen extends Component {
     render() {
         return (
             <Container>
-                <Header style={{backgroundColor: 'white'}}>
+                <Header style={{backgroundColor: variable.cWhite}}>
                     <Grid>
                         <Row>
                             <Col size={10}>
                                 <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
-                                    <Icon name="angle-left" style={{marginTop: 14}} size={26} color={'#555CC4'} />
+                                    <Icon name="angle-left" style={{marginTop: variable.marginTop_10+4}} size={variable.h1} color={variable.cPrimary} />
                                 </TouchableOpacity>
                             </Col>
                             <Col size={90} style={{marginTop:-2}}>
-                                <Text style={{marginTop: 17, color: '#555CC4', fontSize: 17, fontFamily: 'monospace',}}>My Collections</Text>
+                                <TextComponent style={theme.text} title={"My Collections"}/>
                             </Col>
                         </Row>
                     </Grid>
                 </Header>
                 <Content padder>
                     {this.state.myCollection.length == 0 ?
-                        <View style={{flex: 1, alignItems: 'center', marginTop: 140}}>
-                            <Image 
-                                source={require('../../assets/images/emptyCart.png')}
-                                style={{width: 150, height: 150}}
-                                />
-                            <Text style={{marginTop: 10, fontSize: 16, fontFamily: 'monospace', fontWeight: 'bold', color: '#555CC4'}}>Your Collection is Empty.</Text></View> :
+                        <View style={[theme.loaderContainer, {marginTop: 140}]}>
+                            <ImageComponent imageSource={require('../../assets/images/emptyCart.png')}
+                                style={theme.dashboardBookImage} />
+                            <TextComponent style={[theme.titleText, {fontSize: variable.h5}]} title={"Your Collection is Empty."} />
+                        </View> :
                         <FlatList
                             data={this.state.myCollection}
                             style={{marginTop: 15, flex: 1}}
@@ -80,25 +82,24 @@ class MyCollectionScreen extends Component {
                                             <Row>
                                                 <Col size={25}>
                                                     <View key={index} >
-                                                        <View style={{width: 80, height: 120}}>
-                                                            <View 
-                                                                style={{ flex: 1, height: 120, alignItems: 'center', justifyContent: 'space-around',}}>
-                                                                <Image
-                                                                    // resizeMode="contain"
-                                                                    source={{uri: item.Image}}
-                                                                    style={{height: 120, width: 80}} /> 
+                                                        <View style={theme.collectionImage}>
+                                                            <View style={theme.collectionImageView}>
+                                                                <ImageComponent imageSource={{uri: item.Image}}
+                                                                    style={theme.collectionImage} />
                                                             </View>
                                                         </View>
                                                     </View>
                                                 </Col>
                                                 <Col size={65}>
-                                                    <Text style={{marginTop: 10, fontSize: 16, fontFamily: 'monospace', fontWeight: 'bold', color: '#555CC4'}}>{item.Name}</Text>
-                                                    <Text style={{color: 'grey', marginTop: 5, fontFamily: 'monospace', fontSize: 13}}>By <Text style={{color: '#555CC4'}}>{item.Author}</Text></Text>
-                                                    {/* <Text style={{color: '#555CC4', marginTop: 5, fontFamily: 'monospace', fontSize: 13}}>{item.description.substring(0, 80)+' ....'}</Text>  */}
+                                                    <TextComponent style={[theme.titleText, {fontSize: variable.h5}]} title={item.Name} />
+                                                    <View style={{flexDirection: variable.flexDirection_Row,}}>
+                                                        <TextComponent style={[theme.text, {color: 'grey', marginTop: 5, fontSize: variable.h6-1}]} title={"By "} />
+                                                        <TextComponent style={[theme.text, {color: variable.cPrimary, marginTop: 5, fontSize: variable.h6-1}]} title={item.Author} />
+                                                    </View>
                                                 </Col>
-                                                <Col size={5} style={{marginTop: 10,}}>
+                                                <Col size={5} style={{marginTop: variable.marginTop_10,}}>
                                                     <TouchableOpacity onPress={this.handleRemoveFromCollection.bind(this, item.id)}>
-                                                        <Icon name="trash-o" size={22} color={'#555CC4'} />
+                                                        <Icon name="trash-o" size={variable.h2} color={variable.cDanger} />
                                                     </TouchableOpacity>
                                                 </Col>
                                             </Row>
@@ -115,9 +116,6 @@ class MyCollectionScreen extends Component {
 }
 
 const mapStateToProps = state => {
-    // console.log('====================================');
-    // console.log(state.collection.collections);
-    // console.log('====================================');
     return {
         collection: state.collection.collections
     }

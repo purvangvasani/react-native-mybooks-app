@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, ImageBackground } from 'react-native'
+import { View, TouchableOpacity, ImageBackground } from 'react-native'
 import { Container, Content, Header, Grid, Row, Col } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { FlatGrid } from 'react-native-super-grid';
-import { Image } from 'react-native-elements';
 
 import { category } from '../../utils/Constants';
 import theme from '../../Theme/theme';
+import { variable } from '../../Theme/variable';
+import TextComponent from '../../components/component/Text';
 
 class CategoriesScreen extends Component {
     
@@ -25,16 +26,16 @@ class CategoriesScreen extends Component {
     render() {
         return (
             <Container>
-                <Header style={{backgroundColor: 'white'}}>
+                <Header style={{backgroundColor: variable.cWhite}}>
                     <Grid>
                         <Row>
                             <Col size={10}>
                                 <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
-                                    <Icon name="angle-left" style={{marginTop: 14}} size={26} color={'#555CC4'} />
+                                    <Icon name="angle-left" style={{marginTop: variable.marginTop_10+4}} size={variable.h1} color={variable.cPrimary} />
                                 </TouchableOpacity>
                             </Col>
                             <Col size={90} style={{marginTop:-2}}>
-                                <Text style={{marginTop: 17, color: '#555CC4', fontSize: 17, fontFamily: 'monospace',}}>Category List</Text>
+                                <TextComponent style={theme.text} title={"Category List"} />
                             </Col>
                         </Row>
                     </Grid>
@@ -52,10 +53,10 @@ class CategoriesScreen extends Component {
                             <View>
                                 <ImageBackground 
                                     source={require('./../../assets/images/bgCategory.jpeg')}
-                                    style={[theme.tileDashboard, {borderColor: '#555CC4', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10, marginTop: 10 }]}>
-                                        <Icon name="book-reader" size={26} color={'white'} />
+                                    style={[theme.tileDashboard, {borderColor: variable.cPrimary, justifyContent: variable.alignCenter, alignItems: variable.alignCenter, borderRadius: 5, padding: 10, marginTop: 10 }]}>
+                                        <Icon name="book-reader" size={variable.h1} color={variable.cWhite} />
                                     <View style={{zIndex: 10, marginTop: 3}}>
-                                        <Text style={[theme.tileText, {color: 'white'}]}>{item.name}</Text> 
+                                        <TextComponent style={[theme.tileText, {color: variable.cWhite}]} title={item.name} />
                                     </View>
                                 </ImageBackground>
                             </View>

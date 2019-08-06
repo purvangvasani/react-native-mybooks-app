@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { Container, Content, Header, Grid, Row, Col } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import { variable } from '../../Theme/variable';
 import Form from './Form';
+import TextComponent from '../../components/component/Text';
 
 class RequestBookScreen extends Component {
     constructor(props) {
@@ -25,7 +26,8 @@ class RequestBookScreen extends Component {
                                 </TouchableOpacity>
                             </Col>
                             <Col size={90} style={{marginTop:-2}}>
-                                <Text style={{marginTop: 17, color: '#555CC4', fontSize: 17, fontFamily: 'monospace',}}>Request Book Form</Text>
+                                <TextComponent style={{marginTop: 17, color: '#555CC4', fontSize: 17, fontFamily: 'monospace',}}
+                                    title={"Request Book Form"} />
                             </Col>
                         </Row>
                     </Grid>

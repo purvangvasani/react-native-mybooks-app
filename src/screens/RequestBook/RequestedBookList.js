@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { View, TouchableOpacity, FlatList } from 'react-native';
-import { Container, Header, Grid, Row, Col, Text, Content, Card, CardItem } from 'native-base';
+import { Container, Header, Grid, Row, Col, Content, Card, CardItem } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Image, Avatar } from 'react-native-elements';
+import { Avatar } from 'react-native-elements';
 import {connect} from 'react-redux';
+import ImageComponent from '../../components/component/Image';
+import TextComponent from '../../components/component/Text';
+import { variable } from '../../Theme/variable';
 
 class RequestedBookList extends Component {
     constructor(props) {
@@ -31,7 +34,8 @@ class RequestedBookList extends Component {
                                 </TouchableOpacity>
                             </Col>
                             <Col size={90} style={{marginTop:-2}}>
-                                <Text style={{marginTop: 17, color: '#555CC4', fontSize: 17, fontFamily: 'monospace',}}>Requested Book List</Text>
+                                <TextComponent style={{marginTop: 17, color: '#555CC4', fontSize: 17, fontFamily: 'monospace',}}
+                                    title={"Requested Book List"} />
                             </Col>
                         </Row>
                     </Grid>
@@ -39,11 +43,11 @@ class RequestedBookList extends Component {
                 <Content padder>
                     {this.state.requestedBookList.length == 0 ?
                         <View style={{flex: 1, alignItems: 'center', marginTop: 140}}>
-                            <Image 
-                                source={require('../../assets/images/emptyCart.png')}
-                                style={{width: 150, height: 150}}
-                                />
-                            <Text style={{marginTop: 10, fontSize: 16, fontFamily: 'monospace', fontWeight: 'bold', color: '#555CC4'}}>You have not Requested any Books.</Text></View> :
+                            <ImageComponent imageSource={require('../../assets/images/emptyCart.png')}
+                                style={{width: 150, height: 150}} />
+                            <TextComponent style={{marginTop: 10, fontSize: 16, fontFamily: 'monospace', fontWeight: 'bold', color: '#555CC4'}}
+                                title={"You have not Requested any Books."} />
+                        </View> :
                             <FlatList
                                 data={this.state.requestedBookList}
                                 style={{marginTop: 15, flex: 1}}
@@ -66,16 +70,23 @@ class RequestedBookList extends Component {
                                                         <Grid>
                                                             <Row>
                                                                 <Col size={70}>
-                                                                    <Text style={{marginTop: 10, fontSize: 16, fontFamily: 'monospace', fontWeight: 'bold', color: '#555CC4'}}>{item.Bookname}</Text>
+                                                                    <TextComponent style={{marginTop: 10, fontSize: 16, fontFamily: 'monospace', fontWeight: 'bold', color: '#555CC4'}}
+                                                                        title={item.Bookname} />
                                                                 </Col>
                                                                 <Col size={30}>
                                                                     <View style={{marginTop: 10, alignItems: 'center', borderColor: '#555CC4', backgroundColor: '#555CC4', borderWidth: 1, borderRadius: 15,}}>
-                                                                        <Text style={{ fontSize: 12, fontFamily: 'monospace', fontWeight: 'bold', color: 'white'}}>{item.Category}</Text>
+                                                                        <TextComponent style={{ fontSize: 12, fontFamily: 'monospace', fontWeight: 'bold', color: 'white'}}
+                                                                            title={item.Category} />
                                                                     </View>
                                                                 </Col>
                                                             </Row>
                                                         </Grid>
-                                                        <Text style={{color: 'grey', marginTop: 5, fontFamily: 'monospace', fontSize: 13}}>By <Text style={{color: '#555CC4'}}>{item.Authorname}</Text></Text>
+                                                        <View style={{flexDirection: variable.flexDirection_Row,}}>
+                                                            <TextComponent style={{color: 'grey', marginTop: 5, fontFamily: 'monospace', fontSize: 13}}
+                                                                title={"By "} />
+                                                            <TextComponent style={{color: '#555CC4', marginTop: 5, fontFamily: 'monospace', fontSize: 13}}
+                                                                title={item.Authorname} />
+                                                        </View>
                                                     </Col>
                                                     {/* <Col size={5} style={{marginTop: 10,}}>
                                                         <TouchableOpacity onPress={this.handleRemoveFromCollection.bind(this, item.id)}>

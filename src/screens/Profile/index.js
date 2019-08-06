@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image, TouchableOpacity } from 'react-native';
-import { Container, Header, Text, Grid, Row, Col, Button } from 'native-base';
+import { View, Image, TouchableOpacity } from 'react-native';
+import { Container, Header, Grid, Row, Col, Button } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {connect} from 'react-redux';
 import Toast from 'react-native-simple-toast';
 
 import {updateLoginDetails} from '../../actions/Login/login';
+import theme from '../../Theme/theme';
+import { variable } from '../../Theme/variable';
+import ImageComponent from '../../components/component/Image';
+import TextComponent from '../../components/component/Text';
 
 class ProfileScreen extends Component {
     constructor(props) {
@@ -45,14 +49,11 @@ class ProfileScreen extends Component {
         if(!this.state.logged){
             return (
                 <Container>
-                    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                        <Image 
-                            source={require('../../assets/images/loggedOut.png')}
-                            style={{width: 250, height: 250}}
-                        />
-                        {/* <Text style={{ color: '#555CC4', fontSize: 17, fontFamily: 'monospace',}}>You're not Logged In..</Text> */}
+                    <View style={[theme.container, {alignItems: 'center', justifyContent: 'center'}]}>
+                        <ImageComponent imageSource={require('../../assets/images/loggedOut.png')}
+                            style={{width: 250, height: 250}} />
                         <Button style={{borderRadius: 30}} onPress={()=>this.props.navigation.navigate('Login')}>
-                            <Text style={{fontSize: 17, fontFamily: 'monospace',}}>Login</Text>
+                            <TextComponent style={{fontSize: variable.h5, fontFamily: variable.DefaultFontFamily,}} title={"Login"} />
                         </Button>
                     </View>
                 </Container>
@@ -61,68 +62,54 @@ class ProfileScreen extends Component {
         else{
             return (
                 <Container>
-                    <Header style={{backgroundColor: 'white'}}>
+                    <Header style={{backgroundColor: variable.cWhite}}>
                         <Grid>
                             <Row>
                                 <Col size={10}>
                                     <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
-                                        <Icon name="angle-left" style={{marginTop: 14}} size={26} color={'#555CC4'} />
+                                        <Icon name="angle-left" style={{marginTop: 14}} size={variable.h1} color={variable.cPrimary} />
                                     </TouchableOpacity>
                                 </Col>
                                 <Col size={90} style={{marginTop:-2}}>
-                                    <Text style={{marginTop: 17, color: '#555CC4', fontSize: 17, fontFamily: 'monospace',}}>Profile</Text>
+                                    <TextComponent style={theme.text} title={"Profile"} />
                                 </Col>
                             </Row>
                         </Grid>
                     </Header>
                     <View style={{flex: 1}}>
-                        <View style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            backgroundColor: '#555CC4',
-                            height: 120,
-                            zIndex: 0,
-                            alignItems: 'center',
-                        }}>
+                        <View style={theme.profileBackground}>
 
                         </View>
                         <View
                             style={{flex: 1}}>
-                            <View style={{
-                                height: 150,  //150
-                                width: 150,  //150
-                                borderRadius: 75,  //75
-                                borderColor: 'white',
-                                borderWidth: 3,
-                                overflow: 'hidden',
-                                marginTop: 45,
-                                marginLeft: 130
-                            }}>
+                            <View style={theme.profileUserPhoto}>
+                                <ImageComponent imageSource={require('../../assets/images/userIcon.png')}
+                                    style={{flex: 1, height: null, width: null}} />
                                 <Image source={require('../../assets/images/userIcon.png')} style={{flex: 1, height: null, width: null}}/>
                             </View>
-                            <View style={{flexDirection: 'row',}}>
-                                <Text style={{fontWeight: 'bold', color: '#555CC4', fontFamily: 'monospace', fontSize: 18, marginLeft: 40}}>
-                                    <Icon name="user" size={18} /> {this.state.user[0].FullName}
-                                </Text> 
-                                <Text style={{fontWeight: 'bold', color: '#555CC4', fontFamily: 'monospace', fontSize: 18, marginLeft: 20}}>|</Text>
-                                <Text style={{fontWeight: 'bold', color: '#555CC4', fontFamily: 'monospace', fontSize: 18, marginLeft: 25}}>
-                                    <Icon name="envelope" size={18} /> {this.state.user[0].Email}
-                                </Text>
+                            <View style={{flexDirection: variable.flexDirection_Row,}}>
+                                <View style={{flexDirection: variable.flexDirection_Row}}>
+                                    <Icon name="user" size={variable.h4} style={[theme.profileDetailText, {marginTop: 5}]} />
+                                    <TextComponent style={theme.profileDetailText} title={this.state.user[0].FullName} />
+                                </View>
+                                <TextComponent style={[theme.profileDetailText, {marginLeft: 20}]} title={"|"} />
+                                <View style={{flexDirection: variable.flexDirection_Row}}>
+                                    <Icon name="envelope" size={variable.h4} style={[theme.profileDetailText, {marginTop: 5}]} />
+                                    <TextComponent style={[theme.profileDetailText, {marginLeft: 25}]} title={this.state.user[0].Email} />
+                                </View>
                             </View>
-                            <View style={{flex: 1, alignItems: 'center', marginTop: 10,}}>
-                                <Button block style={{margin: 30, borderRadius: 25}} onPress={this.handleMyCollection}>
-                                    <Text>My Collections</Text>
+                            <View style={theme.profileButtonView}>
+                                <Button block style={theme.profileButton} onPress={this.handleMyCollection}>
+                                    <TextComponent title={"My Collections"} />
                                 </Button>
-                                <Button block style={{marginLeft: 30, marginRight: 30, borderRadius: 25}} onPress={this.handleRequestedBook}>
-                                    <Text>Requested Book List</Text>
+                                <Button block style={[theme.profileButton, {marginTop: 10}]} onPress={this.handleRequestedBook}>
+                                    <TextComponent title={"Requested Book List"} />
                                 </Button>
                             </View>
-                            <View style={{alignItems: 'center'}}>
+                            <View style={{alignItems: variable.alignItems_center}}>
                                 <View>
-                                    <Button style={{borderRadius: 30}} onPress={this.handleLogout} bordered>
-                                        <Text style={{fontFamily: 'monospace', fontSize: 16}}>Logout</Text>
+                                    <Button style={theme.buttonRoundRadius} onPress={this.handleLogout} bordered>
+                                        <TextComponent style={theme.linkButtonText} title={"Logout"} />
                                     </Button>
                                 </View>
                             </View>
