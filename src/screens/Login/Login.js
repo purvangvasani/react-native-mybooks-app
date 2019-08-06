@@ -15,6 +15,7 @@ import ImageComponent from '../../components/component/Image';
 import TextComponent from '../../components/component/Text';
 
 class LoginScreen extends Component {
+    
     constructor(props) {
         super(props)
 
@@ -29,6 +30,7 @@ class LoginScreen extends Component {
 
         this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
+    
     componentWillMount() {
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
     }
@@ -160,7 +162,7 @@ class LoginScreen extends Component {
 }
 
 const mapStateToProps = state => {
-    AsyncStorage.setItem('login', JSON.stringify(state.login.users))
+    AsyncStorage.setItem('loginData', JSON.stringify(state.login.users))
     return {
         login: state.login.users
     }

@@ -188,7 +188,7 @@ class BookDetailScreen extends Component {
                     </Animatable.View>
                     <View style={theme.dividerLine}></View>
                     <Animatable.View animation="zoomIn" delay={200}>
-                        <TextComponent style={[theme.titleText,{fontSize: variable.h5, textAlign: variable.alignJustify}]}
+                        <TextComponent style={[theme.titleText,{fontSize: variable.h5, fontWeight: 'normal', textAlign: variable.alignJustify}]}
                             title={this.state.description} />
                     </Animatable.View>
                     <View style={theme.dividerLine}></View>

@@ -1,16 +1,27 @@
 import React, {Component} from 'react';
-import {SafeAreaView, ScrollView, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView, ScrollView, TouchableOpacity, FlatList, View} from 'react-native';
 import {connect} from 'react-redux';
 // import { DrawerItems } from 'react-navigation';
 import { DrawerItems} from 'react-navigation';
 import Toast from 'react-native-simple-toast';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
+import {variable} from './../Theme/variable'
+import { topPickes } from '../utils/Constants';
 import {updateLoginDetails} from '../actions/Login/login';
 import ImageComponent from './component/Image';
 import TextComponent from './component/Text';
 
 
 class CustomDrawerComponent extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      category: topPickes
+    }
+  }
+  
   handleLogout=()=>{
     for(let i = 0; i< this.props.login.length; i++){
         this.props.update(this.props.login[i].id, this.props.login[i].FullName, this.props.login[i].Email, this.props.login[i].Password, false)
@@ -44,11 +55,23 @@ class CustomDrawerComponent extends Component {
               </TouchableOpacity>
             : null
           }
+          <FlatList
+          data={this.state.category}
+          renderItem={({ item, index }) => (
+            <TouchableOpacity>
+              <TextComponent style={{margin: 15, fontWeight:'bold', fontSize: 14}} title={item.category} />
+            </TouchableOpacity>
+          )}
+        />
         </ScrollView>
+        
         {flag 
-            ? <TouchableOpacity style={{margin: 15}} onPress={this.handleLogout}>
-                <TextComponent style={{fontWeight:'bold', fontSize: 14}} title={"Logout"} />
-              </TouchableOpacity>
+            ? <View style={{backgroundColor: 'lightgrey',}}>
+                <TouchableOpacity style={{margin: 15, justifyContent: 'center', flexDirection: variable.flexDirection_Row}} onPress={this.handleLogout}>
+                  <Icon name="logout" size={24} />
+                  <TextComponent style={{fontWeight:'bold', fontSize: 14}} title={"Logout"} />
+                </TouchableOpacity>
+              </View>
             : null
           }
       </SafeAreaView>

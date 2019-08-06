@@ -54,7 +54,7 @@ class CategoriesScreen extends Component {
                                 <ImageBackground 
                                     source={require('./../../assets/images/bgCategory.jpeg')}
                                     style={[theme.tileDashboard, {borderColor: variable.cPrimary, justifyContent: variable.alignCenter, alignItems: variable.alignCenter, borderRadius: 5, padding: 10, marginTop: 10 }]}>
-                                        <Icon name="book-reader" size={variable.h1} color={variable.cWhite} />
+                                        <Icon name="book-reader" size={40} color={variable.cWhite} />
                                     <View style={{zIndex: 10, marginTop: 3}}>
                                         <TextComponent style={[theme.tileText, {color: variable.cWhite}]} title={item.name} />
                                     </View>

@@ -12,6 +12,7 @@ import ImageComponent from '../../components/component/Image';
 import TextComponent from '../../components/component/Text';
 
 class ProfileScreen extends Component {
+    
     constructor(props) {
         super(props)
       
